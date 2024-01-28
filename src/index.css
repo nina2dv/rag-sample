@@ -126,7 +126,7 @@ code {
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: #fbfafa;
   overflow-y: auto; /* Enable vertical scrolling */
   transition: max-height 0.2s ease-out;
   max-height: 0; /* Start with max-height at 0 */
