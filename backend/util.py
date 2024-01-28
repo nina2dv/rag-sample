@@ -28,14 +28,14 @@ def pretty_print_docs(docs):
 class ChatBot:
     def __init__(self):
 
-        self.COHERE_API_KEY = os.environ['COHERE_API_KEY']
-        # self.OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
+        self.COHERE_API_KEY = os.environ.get('COHERE_API_KEY')
+        # self.OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
         # Initialize pinecone
         self.index_name = "langchain"
 
         pinecone.init(
-            api_key=os.environ['PINECONE_API_KEY'],
-            environment=os.environ['PINECONE_ENVIRONMENT']
+            api_key=os.environ.get('PINECONE_API_KEY'),
+            environment=os.environ.get('PINECONE_ENVIRONMENT')
         )
         self.index = pinecone.Index(self.index_name)
 

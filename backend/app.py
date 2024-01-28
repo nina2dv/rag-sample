@@ -32,7 +32,7 @@ def llm():
         query = data.get('query')
         # namespace = data.get('course').lower()
          
-        answer = ChatBot.ask(query=re.sub(pattern='[ \t\n]+$', repl="", string=query), namespace=namespace)
+        answer = ChatBot.ask(query=query, namespace=namespace)
 
         return jsonify({
             "message": answer["message"],
@@ -46,4 +46,4 @@ def llm():
 
 # Running app
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5000)

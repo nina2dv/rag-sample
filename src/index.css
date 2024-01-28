@@ -52,6 +52,7 @@ code {
 
 .user-query {
   font-weight: bold;
+  color: #000000;
 }
 
 .bot-response {
@@ -98,3 +99,37 @@ code {
   border-left: 4px solid #ffd700;
 }
 
+.accordion-container {
+  width: 100%;
+  max-width: 600px; 
+  margin-top: 20px;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: background-color 0.6s ease;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  overflow-y: auto; /* Enable vertical scrolling */
+  transition: max-height 0.2s ease-out;
+  max-height: 0; /* Start with max-height at 0 */
+}
+
+.panel.open {
+  max-height: 500px;
+}

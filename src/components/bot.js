@@ -18,7 +18,10 @@ function Bot() {
 //   function handleChangeCourse(e) {
 //     setCourse(e.target.value);
 //   };
-  
+    const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+    function toggleAccordion() {
+    setIsAccordionOpen(!isAccordionOpen);
+    }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,8 +33,8 @@ function Bot() {
         const token = process.env.REACT_APP_API_KEY;
 
 
-        axios.post("http://localhost:5000/query", {
-        //axios.post("https://weblog-flask.onrender.com/query", {
+        // axios.post("http://localhost:5000/query", {
+        axios.post("https://rag-chatbot-flask.onrender.com/query", {
             query: queryValue, 
             //course: courseValue, 
         }, {
@@ -72,7 +75,11 @@ function Bot() {
     <div className="chat-history">
             {chatHistory.map((entry, index) => (
         <div key={index} className="chat-entry">
-            <div className="user-query">{"You: " + entry.query}</div>
+
+                <ReactMarkdown className="user-query">
+                {"You: " + entry.query}
+                </ReactMarkdown>
+
             <ReactMarkdown className="bot-response">{entry.response}</ReactMarkdown>
         </div>
         ))}
@@ -90,6 +97,15 @@ function Bot() {
       </form>
     </div>
   </div>
+
+  <div className="accordion-container">
+      <button className="accordion" onClick={toggleAccordion}>
+        Retrieved Documents
+      </button>
+      <div className={`panel ${isAccordionOpen ? "open" : ""}`}>
+        <ReactMarkdown>{docs}</ReactMarkdown>
+      </div>
+    </div>
 
   <div className="chat-notes">
 
