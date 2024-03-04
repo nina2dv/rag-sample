@@ -4,7 +4,6 @@ from dotenv import load_dotenv, find_dotenv
 from langchain_community.vectorstores import Pinecone
 import pinecone
 
-# from langchain_openai import OpenAI
 from langchain_community.llms import Cohere
 from langchain_community.embeddings import CohereEmbeddings
 from langchain.retrievers.document_compressors import CohereRerank
